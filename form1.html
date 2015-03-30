@@ -6,7 +6,7 @@
 </head>
     
 <body>
-<h2>Validation Example</h2>
+<h2>Validation Form</h2>
 
 <form ng-app="myApp" ng-controller="validateCtrl" 
 name="myForm" novalidate>
@@ -37,8 +37,8 @@ myForm.email.$dirty && myForm.email.$invalid">
 <script>
 var app = angular.module('myApp', []);
 app.controller('validateCtrl', function($scope) {
-    $scope.user = 'John Doe';
-    $scope.email = 'john.doe@gmail.com';
+    $scope.user = '';
+    $scope.email = '';
 });
 </script>
 
