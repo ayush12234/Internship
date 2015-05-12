@@ -3,7 +3,8 @@ var app = angular.module('myapp', ['ngRoute']);
   $scope.templates =
   [
   	{ url: 'login.html' },
-  	{ url: 'home.html' }
+  	{ url: 'home.html' },
+    {url :'about.html'}
   ];
     $scope.template = $scope.templates[0];
   $scope.login = function (username, password) {
@@ -15,12 +16,13 @@ var app = angular.module('myapp', ['ngRoute']);
   		$scope.loginError = "Invalid username/password combination";
     };
   };
-});
 
-app.controller('HomeCtrl', function($scope, authentication) {
+$scope.authentication=function($scope, authentication) {
   $scope.user = authentication.user.name;
   
+};
 });
+ 
 
 app.factory('authentication', function() {
   return {
@@ -28,20 +30,14 @@ app.factory('authentication', function() {
     user: null
   }
 });
-function getContent(fragmentId){
-var partials = {
-home: "This is the Home page. Welcome to my site.",
-contacts: "This is the Contact page."
-};
-return partials[fragmentId];
-}
-function navigate(){
-var contentDiv = document.getElementById("content"),
-fragmentId = location.hash.substr(1);
-contentDiv.innerHTML = getContent(fragmentId);
-}z
-if(!location.hash) {
-location.hash = "#home";
-}
-navigate();
-window.addEventListener("hashchange", navigate)
+
+ myapp.controller('maincontroller',function($scope){
+  $scope.message='You are in home page using Routing';
+})
+  myapp.controller('aboutcontroller',function($scope){
+    $scope.message='You are in aboutus using Routing';
+     })
+    myapp.controller('contactscontroller',function($scope){
+      $scope.message='You are in contactsus using controller';
+    })
+ 
