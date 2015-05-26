@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+	h1.
+		#{title}
+	form#formAddBlob(name="addblob",method="post",action="/blobs")
+		p Name: 
+			input#inputName(type="text", placeholder="ex. John Smith", name="name")
+		p Rollno:
+			input#inputRollno(type="number", placeholder="ex. 123456", name="Rollno")
+		p DOB: 
+			input#inputDob(type="date", name="dob")
+		
+		p
+			button#btnSubmit(type="submit") submit

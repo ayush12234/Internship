@@ -1,0 +1,20 @@
+extends ../layout
+
+block content
+    h1.
+         #{title}
+    ul
+        - each blob, i in blobs
+            li
+                = blob.name
+                = blob.Rollno
+                = blob.dob
+                = blob._id
+                form(action='/blobs/#{blob._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
+                    input(type='hidden',value='DELETE',name='_method')
+                    button(type='submit').
+                        Delete
+                p 
+                    a(href='/blobs/#{blob._id}/edit') Edit
+                p
+                    a(href='/blobs/#{blob._id}') Show
